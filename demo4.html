@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+   <canvas id="c"></canvas>
+<!--    <img id="my-image" src="demo.png" alt=""> 使用dom -->
+</body>
+<script src="fabric.js"></script>
+<script>
+
+
+
+// 参考画布
+var canvasEl = document.getElementById("c");
+// let imageElement = document.getElementById("my-image"); 使用dom
+
+var img = document.createElement("img");
+img.crossOrigin='Anonymous';
+let canvas = new fabric.Canvas("c");
+
+//  使用dom
+// let imgInstance = new fabric.Image(imageElement , {
+//   left:100 , 
+//   top:100 , 
+//   angle:30 , 
+//   opacity:0.85
+// });
+
+
+// 使用路径(url)
+fabric.Image.fromURL('demo.jpg', function(img) {
+
+// add filter
+img.filters.push(new fabric.Image.filters.Grayscale());
+
+// apply filters and re-render canvas when done
+img.applyFilters();
+// add image onto canvas (it also re-render the canvas)
+canvas.add(img);
+});
+
+
+
+
+// 图片过滤
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</html>

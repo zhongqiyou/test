@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+   <canvas id="c"></canvas>
+</body>
+<script src="fabric.js"></script>
+<script>
+
+
+
+// 参考画布
+var canvasEl = document.getElementById("c");
+
+// 创建一个轻量级画布(不可互动(拖动))
+
+let staticCanvas = new fabric.StaticCanvas("c");
+
+staticCanvas.add(
+  new fabric.Rect({
+    width:10 , 
+    height:10 , 
+    left:100 , 
+    top:100 ,
+    fill:"black" , 
+    angle:30
+  })
+);
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</html>

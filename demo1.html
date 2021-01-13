@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+   <canvas id="c"></canvas>
+</body>
+<script src="fabric.js"></script>
+<script>
+
+// 不使用fabric写法start
+
+// 参考画布
+var canvasEl = document.getElementById("c");
+// 获取要绘制的2d上下文
+// var ctx = canvasEl.getContext("2d");
+
+// 设置上下文的填充颜色
+// ctx.fillStyle = "red";
+
+//创建图像fillRect(left , top , width , height)
+// ctx.fillRect(100 , 100 , 100 , 100);
+
+// 不使用fabric写法end
+
+
+// 使用fabric写法
+
+// 在本地画布元素创建包装器
+var canvas = new fabric.Canvas("c");
+
+// 创建一个矩形
+var rect = new fabric.Rect({
+  left:50 , 
+  top:50 , 
+  fill:"red" ,
+  width:20 , 
+  height:20 , 
+  angle:45 //角度
+});
+
+// 将"矩形"添加到画布
+canvas.add(rect);
+
+// 三种修改方式(setter)
+
+rect.set("fill" , "black");
+
+rect.set("angle" , 15).set("filpY" , true);
+
+rect.set({left:110 , top:110});//推荐
+
+
+// 获取
+console.log(rect.get("width"));
+
+
+
+// canvas.renderAll();
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</html>

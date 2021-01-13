@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+   <canvas id="c"></canvas>
+</body>
+<script src="fabric.js"></script>
+<script>
+
+var canvasEl = document.getElementById("c" , {
+  backgroundColor:'rgb(100,100,200)',
+  selectionColor:'blue',
+  selectionLineWidth:2 
+});
+
+let canvas = new fabric.Canvas("c");
+
+// 创建三角形
+let rect = new fabric.Rect({
+  width:20 , 
+  height:20 , 
+  fill:"red" , 
+  top:0 , 
+  left:0
+});
+
+
+
+// 创建长正形
+let triangle = new fabric.Triangle({
+  width:20 , 
+  height:20 , 
+  fill:"red" , 
+  top:60 , 
+  left:60
+});
+
+canvas.add(rect , triangle)
+
+fabric.Object.prototype.getTop = function(){
+  console.log("测试原型链");
+  return this.get("top")/2
+}
+
+console.log(rect.getTop()
+ ,triangle.getTop());
+
+// 获取画布上的对象
+console.log(canvas.item(1));
+
+// 获取画布上所有对象
+console.log(canvas.getObjects());
+
+// canvas.remove(rect);
+
+canvas.selection  = false;
+
+rect.set("selectable" , false);
+
+
+
+
+
+</script>
+
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+   <canvas id="c" width="800px" height="800px"></canvas>
+</body>
+<script src="fabric.js"></script>
+<script>
+
+
+
+// 参考画布
+var canvasEl = document.getElementById("c");
+
+var canvas = new fabric.Canvas("c");
+
+
+// 团体
+
+// 图形+文本
+
+var circle = new fabric.Circle({
+  radius: 100,
+  fill: '#eef',
+  scaleY: 0.5,
+  originX: 'center',
+  originY: 'center'
+});
+
+var text = new fabric.Text('hello world', {
+  fontSize: 30,
+  originX: 'center',
+  originY: 'center'
+});
+
+var groupText = new fabric.Group([ circle, text ], {
+  left: 150,
+  top: 100,
+  angle: -10
+});
+
+
+
+
+// 图形
+var circle1 = new fabric.Circle({
+  radius: 50,
+  fill: 'red',
+  left: 0
+});
+var circle2 = new fabric.Circle({
+  radius: 50,
+  fill: 'green',
+  left: 100
+});
+var circle3 = new fabric.Circle({
+  radius: 50,
+  fill: 'blue',
+  left: 200
+});
+
+var circle4 = new fabric.Circle({
+  radius: 50,
+  fill: 'black',
+  left: 500 ,
+  top:100
+  
+});
+
+var group = new fabric.Group([ circle1, circle2, circle3 ], {
+  left: 200,
+  top: 100
+});
+
+canvas.add(group , groupText);
+
+group.addWithUpdate(circle4);
+
+groupText.add(new fabric.Rect({
+  width:100 , 
+  height:100 , 
+  fill:"yellow" ,
+  originX:'center',
+  originY: 'center'
+}));
+
+
+
+
+
+// 图片
+fabric.Image.fromURL('demo.jpg', function(img) {
+  var img1 = img.scale(0.1).set({ left: 100, top: 100 });
+
+  fabric.Image.fromURL('demo.jpg', function(img) {
+    var img2 = img.scale(0.1).set({ left: 175, top: 175 });
+
+    fabric.Image.fromURL('demo.jpg', function(img) {
+      var img3 = img.scale(0.1).set({ left: 250, top: 250 });
+
+      canvas.add(new fabric.Group([ img1, img2, img3], { left: 200, top: 200 }))
+    });
+  });
+});
+
+
+
+
+
+
+
+
+</script>
+
+
+</html>
